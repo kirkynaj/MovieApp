@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
 const Home = () => {
   // constructor() {
@@ -9,9 +9,9 @@ const Home = () => {
   //   }
   //   this.apiKey = process.env.React_APP_API
   // }
-  const [movieList, setMovieList] = useState();
+  // const [movieList, setMovieList] = useState();
 
-  return <></>;
+  return "Hello World";
 };
 
 export default Home;
