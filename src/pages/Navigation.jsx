@@ -4,7 +4,9 @@ const Navigation = () => {
   return (
     <>
       <div className="NavigationContainerStyle">
-        <div className="LogoContainerStyle"></div>
+        <div className="LogoContainerStyle">
+          <h1>Movie App</h1>
+        </div>
         <div className="NavTabs">
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <h1>Home</h1>
