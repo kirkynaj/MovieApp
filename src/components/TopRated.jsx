@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../utils/Fetch";
 import { styled } from "@mui/system";
 
+import { Typography } from "@mui/material";
+
 const TopRatedContainerStyle = styled("div")(({ theme }) => ({
   color: theme.palette.primary.textMain,
   background: theme.palette.primary.main,
-  justifyContent: "center",
+  padding: "10px",
 }));
 
 const TopRatedCardContainerStyle = styled("div")(({ theme }) => ({
@@ -16,10 +18,11 @@ const TopRatedCardContainerStyle = styled("div")(({ theme }) => ({
 
 const TopRatedCardStyle = styled("div")(({ theme }) => ({
   color: theme.palette.primary.textMain,
-  background: theme.palette.primary.secondary,
+  background: theme.palette.secondary.main,
   width: "200px",
   padding: "10px",
   margin: "15px",
+  borderRadius: theme.shape.borderRadius,
 }));
 
 const TopRated = () => {
@@ -34,7 +37,9 @@ const TopRated = () => {
   return (
     <>
       <TopRatedContainerStyle>
-        <h2>Top Rated</h2>
+        <Typography variant="h4" display="block" fontWeight="bold">
+          Top Rated
+        </Typography>
         <p>view all</p>
         <TopRatedCardContainerStyle>
           {topRated &&
