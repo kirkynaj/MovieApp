@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getPopularMovies } from "../utils/Fetch";
+
 import { styled } from "@mui/system";
+import { Typography } from "@mui/material";
 
 const MostPopContainerStyle = styled("div")(({ theme }) => ({
   color: theme.palette.primary.textMain,
-  background: theme.palette.primary.secondary,
-  justifyContent: "center",
+  padding: "10px",
 }));
 
 const MostPopCardContainerStyle = styled("div")(({ theme }) => ({
@@ -16,10 +17,11 @@ const MostPopCardContainerStyle = styled("div")(({ theme }) => ({
 
 const MostPopCardStyle = styled("div")(({ theme }) => ({
   color: theme.palette.primary.textMain,
-  background: theme.palette.primary.secondary,
+  background: theme.palette.secondary.main,
   width: "200px",
   padding: "10px",
   margin: "15px",
+  borderRadius: theme.shape.borderRadius,
 }));
 
 const Popular = () => {
@@ -34,7 +36,9 @@ const Popular = () => {
   return (
     <>
       <MostPopContainerStyle>
-        <h2>Most Popular</h2>
+        <Typography variant="h4" display="block" fontWeight="bold">
+          Most Popular
+        </Typography>
         <p>view all</p>
         <MostPopCardContainerStyle>
           {popular &&
