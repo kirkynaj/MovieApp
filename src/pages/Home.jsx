@@ -8,6 +8,8 @@ import Popular from "../components/Popular";
 import TopRated from "../components/TopRated";
 import Upcoming from "../components/Upcoming";
 import Search from "../components/Search";
+import { TableFooter } from '@mui/material';
+
 
 // const MyThemeComponent = styled("div")(({ theme }) => ({
 //   color: theme.palette.primary.contrastText,
@@ -16,7 +18,22 @@ import Search from "../components/Search";
 //   borderRadius: theme.shape.borderRadius,
 // }));
 
-const MainContainerStyle = styled("div")(({ theme }) => ({}));
+const MainContainerStyle = styled("div")(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  margin:"0",
+}));
+
+const FooterContainerStyle = styled("div")(({ theme }) => ({
+  width: "100%",
+  flexDirection: "column",
+  justifyContent: "center",
+  margin:"0",
+  padding: "10rem",
+  backgroundColor: "red",
+}));
 
 const Home = () => {
   const [searchMovie, setSearchMovie] = useState("");
@@ -84,7 +101,12 @@ const Home = () => {
         <div className="UpcomingContainerStyle">
           <Upcoming />
         </div>
+        
       </MainContainerStyle>
+      <FooterContainerStyle>
+          <h2>Something</h2>
+        </FooterContainerStyle>
+
     </>
   );
 };
