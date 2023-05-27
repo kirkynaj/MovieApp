@@ -14,6 +14,7 @@ const ResultCardContainerStyle = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "wrap",
   margin: "10px",
+  width: "20rem",
 }));
 
 const Search = ({ searchResults }) => {
