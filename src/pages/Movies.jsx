@@ -1,62 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { getPopularMovies } from "../utils/Fetch";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { getMovieDetails, getMovies } from "../utils/Fetch";
 import noPoster from "../assets/no-poster-available.jpg";
-// import { styled } from "@mui/system";
 
+import { styled } from "@mui/system";
 import {
+  Container,
   Typography,
   Button,
   Card,
   CardMedia,
   CardContent,
-  Container,
-  Box,
 } from "@mui/material";
 
-const Popular = () => {
-  const [popular, setPopular] = useState();
-  const navigate = useNavigate();
-  const page = 1;
+const MovieCardContainerStyle = styled("div")(({ theme }) => ({
+  width: "auto",
+  display: "flex",
+  flexWrap: "wrap",
+}));
 
+const Movies = () => {
+  const [movies, setMovies] = useState([]);
+  const [movieDetails, setMovieDetails] = useState();
+  const [page, setPage] = useState(1);
+  const movieID = movies.map((movie) => movie.id);
+  console.log("movie ID", movieID);
+  const idCount = movieID.length;
   useEffect(() => {
-    getPopularMovies(page).then((data) => {
-      setPopular(data.results);
+    getMovies(page).then((data) => {
+      setMovies(data);
     });
   }, []);
 
-  const handleClickSingle = (id) => {
-    navigate(`/movie/${id}`);
-  };
+  useEffect(() => {
+    getMovieDetails().then((data) => {
+      setMovieDetails(data);
+    });
+  }, []);
+
+  console.log("movie list =>", movies);
 
   return (
     <>
-      <Container maxWidth="xl">
-        <Typography
-          variant="h4"
-          display="block"
-          fontWeight="bold"
-          marginTop={2}
-        >
-          Most Popular
+      {movies &&
+        movies.map((movie) => {
+          return (
+            <>
+              <Typography variant="h5">{movie.id}</Typography>
+              <br />
+            </>
+          );
+        })}
+
+      {/* <Container maxWidth="xl">
+        <Typography variant="h4" display="block" fontWeight="bold">
+          Movie List
         </Typography>
-        <NavLink to="/most-popular" style={{ textDecoration: "none" }}>
-          <Button variant="text" color="success">
-            view all
-          </Button>
-        </NavLink>
-        <Outlet />
-        <Box display="flex" padding={3} flexWrap="wrap" justifyContent="center">
-          {popular &&
-            popular.slice(0, 5).map((movie) => {
+        <MovieCardContainerStyle>
+          {movies &&
+            movies.map((movie) => {
               return (
                 <>
-                  <Card
-                    sx={{
-                      width: 230,
-                      margin: 1,
-                    }}
-                  >
+                  <Card sx={{ width: 230 }}>
                     {movie.poster_path === null ? (
                       <CardMedia
                         sx={{ height: 330 }}
@@ -89,21 +93,15 @@ const Popular = () => {
                       >
                         {movie.title || movie.name}
                       </Typography>
-                      <Button
-                        variant="outlined"
-                        onClick={() => handleClickSingle(movie.id)}
-                      >
-                        View Info
-                      </Button>
+                      <Button variant="outlined">View Info</Button>
                     </CardContent>
                   </Card>
                 </>
               );
             })}
-        </Box>
-      </Container>
+        </MovieCardContainerStyle>
+      </Container> */}
     </>
   );
 };
-
-export default Popular;
+export default Movies;
