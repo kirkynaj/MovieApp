@@ -10,10 +10,10 @@ import {
   CardMedia,
   CircularProgress,
   Typography,
-  LinearProgress,
+  // LinearProgress,
   ImageList,
   ImageListItem,
-  ImageListItemBar,
+  // ImageListItemBar,
 } from "@mui/material";
 
 const Movie = () => {
@@ -21,35 +21,29 @@ const Movie = () => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [images, setImages] = useState();
   const [casts, setCasts] = useState();
-  const [crews, setCrews] = useState();
+  // const [crews, setCrews] = useState();
 
   const movieID = params.id;
   const voteAve = movieDetails.vote_average;
   const percentValue = (voteAve * 100).toFixed(2);
-  const popularity = movieDetails.popularity;
-  const percentValuePop = (popularity * 100).toFixed(2);
+  // const popularity = movieDetails.popularity;
+  // const percentValuePop = (popularity * 100).toFixed(2);
   const releaseDate = movieDetails.release_date;
 
   useEffect(() => {
     getMovieDetails(movieID).then((data) => {
       setMovieDetails(data);
     });
-  }, []);
-  console.log("movie details =>", movieDetails);
-
-  useEffect(() => {
     getImageLists(movieID).then((data) => {
       setImages(data.backdrops);
     });
-  }, []);
-  console.log("images =>", images);
-
-  useEffect(() => {
     getCredits(movieID).then((data) => {
       setCasts(data.cast);
       // setCrews(data.crew);
     });
   }, []);
+  console.log("movie details =>", movieDetails);
+
   console.log("casts =>", casts);
 
   return (
@@ -185,6 +179,7 @@ const Movie = () => {
                   <ImageListItem>
                     <img
                       src={`https://www.themoviedb.org/t/p/w1280${image.file_path}`}
+                      alt="Backdrop Images"
                     />
                     {/* <ImageListItemBar
                       title={movieDetails.title}

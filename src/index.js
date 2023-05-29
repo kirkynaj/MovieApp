@@ -13,7 +13,7 @@ const customTheme = createTheme({
       main: '#11bae1',
     },
     secondary: {
-      main: '#f1f1f1',
+      main: '#FAFAFA',
     },
   },
   typography: {

@@ -45,15 +45,6 @@ export const getUpcomingMovies = (page) => {
     .catch((err) => console.log("error top rated =>", err));
 };
 
-export const getMovies = (page) => {
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/movie/changes?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=${page}`
-    )
-    .then((res) => res.data.results)
-    .catch((err) => console.log("error movies =>", err));
-};
-
 export const getMovieDetails = (id) => {
   return axios
     .get(
@@ -79,4 +70,10 @@ export const getCredits = (id) => {
     )
     .then((res) => res.data)
     .catch((err) => console.log("error credits =>", err));
+};
+
+export const getLatest = () => {
+  return axios.get(
+    `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US`
+  );
 };

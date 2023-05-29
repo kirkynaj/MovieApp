@@ -16,27 +16,27 @@ import { TableFooter } from "@mui/material";
 //   borderRadius: theme.shape.borderRadius,
 // }));
 
-const MainContainerStyle = styled("div")(({ theme }) => ({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  margin: "0",
-}));
+// const MainContainerStyle = styled("div")(({ theme }) => ({
+//   width: "100%",
+//   display: "flex",
+//   flexDirection: "column",
+//   justifyContent: "center",
+//   margin: "0",
+// }));
 
-const FooterContainerStyle = styled("div")(({ theme }) => ({
-  width: "100%",
-  flexDirection: "column",
-  justifyContent: "center",
-  margin: "0",
-  padding: "10rem",
-  backgroundColor: "red",
-}));
+// const FooterContainerStyle = styled("div")(({ theme }) => ({
+//   width: "100%",
+//   flexDirection: "column",
+//   justifyContent: "center",
+//   margin: "0",
+//   padding: "10rem",
+//   backgroundColor: "#11bae1",
+// }));
 
 const Home = () => {
   return (
     <>
-      <Container maxWidth="100%" sx={{ margin: 0, padding: 0 }}>
+      <Box width="100%">
         <Box>
           <Search />
         </Box>
@@ -52,10 +52,10 @@ const Home = () => {
         <Box>
           <Upcoming />
         </Box>
-      </Container>
-      <FooterContainerStyle>
+      </Box>
+      <Box width="100%">
         <h2>Something</h2>
-      </FooterContainerStyle>
+      </Box>
     </>
   );
 };
