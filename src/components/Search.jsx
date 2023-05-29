@@ -13,15 +13,8 @@ import {
   Container,
   TextField,
 } from "@mui/material";
-import { styled } from "@mui/system";
+// import { styled } from "@mui/system";
 import { HashLoader } from "react-spinners";
-
-const ResultCardContainerStyle = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexWrap: "wrap",
-  margin: "10px",
-  width: "20rem",
-}));
 
 const Search = () => {
   const [searchMovie, setSearchMovie] = useState("");

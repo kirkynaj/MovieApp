@@ -41,7 +41,7 @@ const Movie = () => {
       setCasts(data.cast);
       // setCrews(data.crew);
     });
-  }, []);
+  });
   console.log("movie details =>", movieDetails);
 
   console.log("casts =>", casts);
