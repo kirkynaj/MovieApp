@@ -22,7 +22,7 @@ const Upcoming = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const totalPages = 4;
+  const totalPages = 3;
 
   useEffect(() => {
     setIsLoading(true);
