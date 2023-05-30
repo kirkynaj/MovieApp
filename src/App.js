@@ -7,6 +7,7 @@ import PopularArchive from "./pages/PopularArchive";
 import Upcoming from "./pages/UpcomingArchive";
 import Devs from "./pages/Devs";
 import Movie from "./pages/Movie";
+import About from "./pages/About";
 
 const App = () => {
   
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="most-popular" element={<PopularArchive />} />
       <Route path="upcoming" element={<Upcoming />} />
       <Route path="devs" element={<Devs />} />
+      <Route path="about" element={<About />} />
       <Route path="/movie/:id" element={<Movie/>} />
     </Route>
    </Routes>

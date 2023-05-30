@@ -1,22 +1,36 @@
 import { NavLink, Outlet } from "react-router-dom";
 // import { styled } from "@mui/system";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import logo from "../assets/SINI.png";
 
 const Navigation = () => {
   return (
     <>
-      <Box display="flex">
-        <div className="LogoContainerStyle">
+      <Box
+        display="flex"
+        sx={{ backgroundColor: "#11bae1" }}
+        justifyContent="space-between"
+      >
+        <Box padding={3}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
-            <h1>Movie App</h1>
+            <img src={logo} alt="SINI" />
           </NavLink>
-        </div>
-        <Box display="flex">
+        </Box>
+        <Box display="flex" padding={4}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
-            <h1>Home</h1>
+            <Typography variant="h5" marginRight={3} color="#FFF">
+              Home
+            </Typography>
           </NavLink>
           <NavLink to="/devs" style={{ textDecoration: "none" }}>
-            <h1>Devs</h1>
+            <Typography variant="h5" marginRight={3} color="#FFF">
+              Devs
+            </Typography>
+          </NavLink>
+          <NavLink to="/about" style={{ textDecoration: "none" }}>
+            <Typography variant="h5" color="#FFF">
+              About
+            </Typography>
           </NavLink>
         </Box>
       </Box>

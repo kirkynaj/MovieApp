@@ -23,7 +23,7 @@ const Trending = () => {
       setTrending(data);
     });
   }, []);
-  console.log("trending =>", trending);
+  // console.log("trending =>", trending);
 
   const handleClickSingle = (id) => {
     navigate(`/movie/${id}`);

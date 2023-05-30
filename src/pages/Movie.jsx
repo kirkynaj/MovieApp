@@ -10,10 +10,9 @@ import {
   CardMedia,
   CircularProgress,
   Typography,
-  // LinearProgress,
+  Avatar,
   ImageList,
   ImageListItem,
-  // ImageListItemBar,
 } from "@mui/material";
 
 const Movie = () => {
@@ -41,7 +40,7 @@ const Movie = () => {
       setCasts(data.cast);
       // setCrews(data.crew);
     });
-  });
+  }, [movieID]);
   console.log("movie details =>", movieDetails);
 
   console.log("casts =>", casts);
@@ -49,7 +48,7 @@ const Movie = () => {
   return (
     <>
       <Container maxWidth="vw">
-        <Box marginBottom={10}>
+        <Box marginBottom={10} marginTop={3}>
           <CardMedia
             sx={{ height: 400, width: "100%", borderRadius: 3, boxShadow: 10 }}
             image={`https://www.themoviedb.org/t/p/w1280${movieDetails.backdrop_path}`}
@@ -131,24 +130,6 @@ const Movie = () => {
                   <Typography variant="subtitle1">User Score</Typography>
                 </Box>
               </Box>
-
-              {/* <Typography variant="subtitle1" paddingTop={1}>
-                Popularity
-              </Typography> */}
-              {/* <Box display="flex" alignItems="center">
-                <Box width="100%" mr={1}>
-                  <LinearProgress
-                    variant="determinate"
-                    value={movieDetails.popularity}
-                  />
-                </Box>
-                <Box minWidth={35}>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                  >{`${Math.round(movieDetails.popularity)}%`}</Typography>
-                </Box>
-              </Box> */}
             </Box>
           </Box>
           <Container width="xl">
@@ -161,10 +142,15 @@ const Movie = () => {
             <Typography variant="h5" fontWeight="bold">
               Casts:
             </Typography>
-            <Box display="flex" flexWrap="wrap" justifyContent="left">
+            <Box display="flex" flexWrap="wrap" justifyContent="space-evenly">
               {casts?.map((cast) => {
                 return (
-                  <Box display="block" margin={2}>
+                  <Box display="block" margin={5} sx={{ maxWidth: 100 }}>
+                    <Avatar
+                      alt={cast.name}
+                      src={`https://www.themoviedb.org/t/p/w1280${cast.profile_path}`}
+                      sx={{ width: 80, height: 80 }}
+                    />
                     <Typography variant="h6">{cast.name}</Typography>
                     <Typography variant="subtitle2">
                       {cast.character}
@@ -174,6 +160,9 @@ const Movie = () => {
               })}
             </Box>
             <Box flexWrap="wrap">
+              <Typography variant="h5" fontWeight="bold">
+                Backdrop Images:
+              </Typography>
               <ImageList cols={3} rowHeight={200}>
                 {images?.map((image) => (
                   <ImageListItem>
