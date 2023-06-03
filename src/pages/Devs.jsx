@@ -1,54 +1,58 @@
 import React from "react";
 
-import { Box, Typography, Container, Grid, Avatar } from "@mui/material";
+import { Box, Typography, Container, Grid, Avatar, Card } from "@mui/material";
 import kirkPic from "../assets/16712217.jpeg";
 import OrwillePic from "../assets/Orwille.png";
+
 
 const Devs = () => {
   return (
     <>
-      <Box>
-        <Typography variant="h3" alignContent={"center"}>
+      <Box >
+        <Typography 
+        variant="h3" 
+        align="center"
+        padding={10}
+        >
           Two devs one project
         </Typography>
-        <Container maxWidth="sm">
+        <Container style={{ display: 'flex', justifyContent: 'center' }}
+        
+        maxWidth="sm">
           <img src="" alt="" />
-          <Grid container spacing={20} flexDirection={"column"}>
-            <Grid item xs={12} sm={6} md={10}>
-              {
-                <Box>
+          <Box container spacing={20} align="center" direction="column">
+           
+              
+                <Card>
                   <Avatar
                     alt="Dev Name"
                     src={kirkPic}
                     sx={{ width: 400, height: 400 }}
                   />
-                  <Typography variant="h3">Kirk</Typography>
-                  <Typography variant="p">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cumque sunt repudiandae consectetur asperiores reiciendis
-                    optio, inventore enim quidem rerum nostrum. Odio quia omnis
-                    tempore. Aliquam natus nihil ullam iusto soluta.
+                  <Typography variant="h3" align="center"
+                  padding={5}>Kirk</Typography>
+                  <Typography variant="p"
+                  padding={5}>
+                  Never stop learning... Opportunities may come.
                   </Typography>
-                </Box>
-              }
-            </Grid>
-            <Grid item xs={12} sm={6} md={10}>
-              <Box justifyContent="center" alignItems="center">
+                </Card>
+              
+            
+            
+              <Card justifyContent="center" alignItems="center" padding={10}>
                 <Avatar
+                  
                   alt="Dev Name"
                   src={OrwillePic}
                   sx={{ width: 400, height: 400 }}
                 />
-                <Typography variant="h3">Orwille</Typography>
-                <Typography variant="p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cumque sunt repudiandae consectetur asperiores reiciendis
-                  optio, inventore enim quidem rerum nostrum. Odio quia omnis
-                  tempore. Aliquam natus nihil ullam iusto soluta.
+                <Typography variant="h3" align="center" padding={5}>Orwille</Typography>
+                <Typography variant="p" align="center" padding={5}>
+                Graphic designer, web developer in the making, outdoor enthusiast
                 </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+              </Card>
+           
+          </Box>
         </Container>
       </Box>
     </>
