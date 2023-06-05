@@ -14,6 +14,7 @@ import {
   ImageList,
   ImageListItem,
 } from "@mui/material";
+import Footer from "../components/Footer";
 
 const Movie = () => {
   const params = useParams();
@@ -50,14 +51,20 @@ const Movie = () => {
       <Container maxWidth="vw">
         <Box marginBottom={10} marginTop={3}>
           <CardMedia
-            sx={{ height: 400, width: "100%", borderRadius: 3, boxShadow: 10 }}
+            sx={{
+              height: 400,
+              width: "100%",
+              borderRadius: 3,
+              boxShadow: 10,
+              objectFit: "cover",
+            }}
             image={`https://www.themoviedb.org/t/p/w1280${movieDetails.backdrop_path}`}
             alt="Movie backdrop"
           />
-          <Box display="flex" padding={3} marginTop={-12}>
+          <Box display="flex" padding={3} marginTop={-12} flexWrap="wrap">
             <Card
               sx={{
-                minWidth: 230,
+                width: 230,
                 margin: 1,
               }}
             >
@@ -78,7 +85,7 @@ const Movie = () => {
                 />
               )}
             </Card>
-            <Box padding={3} marginTop={12}>
+            <Box padding={3} marginTop={10}>
               <Box>
                 <Typography variant="h4" display="block" fontWeight="bold">
                   {movieDetails.title} ({releaseDate?.slice(0, 4)})
@@ -136,10 +143,10 @@ const Movie = () => {
             <Typography variant="h5" fontWeight="bold">
               Overview:
             </Typography>
-            <Typography variant="h6" padding={1}>
+            <Typography variant="h6" padding={3}>
               {movieDetails.overview}
             </Typography>
-            <Typography variant="h5" fontWeight="bold">
+            <Typography variant="h5" fontWeight="bold" marginTop={5}>
               Casts:
             </Typography>
             <Box display="flex" flexWrap="wrap" justifyContent="space-evenly">
@@ -159,16 +166,17 @@ const Movie = () => {
                 );
               })}
             </Box>
-            <Box flexWrap="wrap">
+            <Box flexWrap="wrap" marginTop={5}>
               <Typography variant="h5" fontWeight="bold">
                 Backdrop Images:
               </Typography>
-              <ImageList cols={3} rowHeight={200}>
+              <ImageList cols={2} variant="quilted" sx={{ padding: 3 }}>
                 {images?.map((image) => (
                   <ImageListItem>
                     <img
                       src={`https://www.themoviedb.org/t/p/w1280${image.file_path}`}
                       alt="Backdrop Images"
+                      loading="lazy"
                     />
                     {/* <ImageListItemBar
                       title={movieDetails.title}
@@ -181,6 +189,7 @@ const Movie = () => {
           </Container>
         </Box>
       </Container>
+      <Footer />
     </>
   );
 };

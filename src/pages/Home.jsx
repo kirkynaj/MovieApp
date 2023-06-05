@@ -8,6 +8,7 @@ import TopRated from "../components/TopRated";
 import Upcoming from "../components/Upcoming";
 import Search from "../components/Search";
 import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -33,7 +34,7 @@ const Home = () => {
         </Box>
       </Box>
       <Box>
-        <h2>Something</h2>
+        <Footer />
       </Box>
     </>
   );

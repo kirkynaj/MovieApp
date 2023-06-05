@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Typography, Container, Grid, Avatar } from "@mui/material";
 import kirkPic from "../assets/16712217.jpeg";
 import OrwillePic from "../assets/Orwille.png";
+import Footer from "../components/Footer";
 
 const Devs = () => {
   return (
@@ -51,6 +52,7 @@ const Devs = () => {
           </Grid>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 };

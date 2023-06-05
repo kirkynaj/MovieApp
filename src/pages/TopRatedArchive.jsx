@@ -15,6 +15,7 @@ import {
   Pagination,
 } from "@mui/material";
 import { HashLoader } from "react-spinners";
+import Footer from "../components/Footer";
 
 const TopRatedArchive = () => {
   const [topRated, setTopRated] = useState();
@@ -46,7 +47,7 @@ const TopRatedArchive = () => {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
         <Typography
           variant="h4"
           display="block"
@@ -147,6 +148,7 @@ const TopRatedArchive = () => {
           />
         </Stack>
       </Container>
+      <Footer />
     </>
   );
 };

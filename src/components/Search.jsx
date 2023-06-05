@@ -42,27 +42,20 @@ const Search = () => {
 
   const handleClick = () => {
     setsearchResults("");
+    setSearchMovie("");
   };
 
   const handleClickSingle = (id) => {
     navigate(`/movie/${id}`);
   };
 
-  // const handleClickNext = () => {
-  //   setPage(page + 1);
-  // };
-
-  // const handleClickPrevious = () => {
-  //   setPage(page - 1);
-  // };
-
   return (
     <>
-      <Container maxWidth="xl">
+      <Box display="flex" justifyContent="center">
         <Box
           component="form"
           sx={{
-            "& > :not(style)": { m: 0.5, width: "40ch", height: "8.5ch" },
+            "& > :not(style)": { m: 0.5, width: "40ch", height: "8ch" },
           }}
           noValidate
           autoComplete="off"
@@ -73,12 +66,13 @@ const Search = () => {
             variant="outlined"
             onChange={(e) => setSearchMovie(e.target.value)}
             value={searchMovie}
+            label="Search Movies"
           />
           <Button variant="contained" type="submit">
             Search
           </Button>
         </Box>
-      </Container>
+      </Box>
       {!searchResults ? (
         <></>
       ) : isLoading ? (
