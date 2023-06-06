@@ -13,6 +13,7 @@ import {
   Box,
 } from "@mui/material";
 import { HashLoader } from "react-spinners";
+import Footer from "../components/Footer";
 
 const TrendingArchive = () => {
   const [trending, setTrending] = useState();
@@ -36,7 +37,7 @@ const TrendingArchive = () => {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
         <Typography
           variant="h4"
           display="block"
@@ -121,6 +122,7 @@ const TrendingArchive = () => {
           </Box>
         )}
       </Container>
+      <Footer />
     </>
   );
 };

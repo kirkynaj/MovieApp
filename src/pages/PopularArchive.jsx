@@ -15,6 +15,7 @@ import {
   Box,
 } from "@mui/material";
 import { HashLoader } from "react-spinners";
+import Footer from "../components/Footer";
 
 const PopularArchive = () => {
   const [popular, setPopular] = useState();
@@ -46,7 +47,7 @@ const PopularArchive = () => {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
         <Typography
           variant="h4"
           display="block"
@@ -147,6 +148,7 @@ const PopularArchive = () => {
           />
         </Stack>
       </Container>
+      <Footer />
     </>
   );
 };
