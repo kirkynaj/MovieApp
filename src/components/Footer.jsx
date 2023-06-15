@@ -14,7 +14,7 @@ const Footer = () => {
       <Typography variant="subtitle2">
         SINI &copy; copyright {new Date().getFullYear()}
       </Typography>
-      <Typography variant="subtitle2">&nbsp; || &nbsp;</Typography>
+      <Typography variant="subtitle2">&nbsp; | &nbsp;</Typography>
       <NavLink to="/devs" style={{ textDecoration: "none" }}>
         <Typography variant="subtitle2" color="black">
           developers
